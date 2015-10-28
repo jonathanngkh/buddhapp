@@ -1375,7 +1375,7 @@ throw new TypeError(
 
 var index=findIndex.call(this,predicate,context);
 return index === -1?undefined:this[index]}})}})();
-__d('Buddhapp/index.ios.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  'use strict';
+__d('Buddhapp/index.ios.js',["react-native/Libraries/react-native/react-native.js","RCTDeviceEventEmitter"],function(global, require, module, exports) {  'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}})();var _get=function get(object,property,receiver){if(object === null)object = Function.prototype;var desc=Object.getOwnPropertyDescriptor(object,property);if(desc === undefined){var parent=Object.getPrototypeOf(object);if(parent === null){return undefined}else {return get(parent,property,receiver)}}else if('value' in desc){return desc.value}else {var getter=desc.get;if(getter === undefined){return undefined}return getter.call(receiver)}};function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _inherits(subClass,superClass){if(typeof superClass !== 'function' && superClass !== null){throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass)}subClass.prototype = Object.create(superClass && superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__ = superClass}
 
 
 
@@ -1387,44 +1387,139 @@ AppRegistry=
 
 
 
-React.AppRegistry;var StyleSheet=React.StyleSheet;var Text=React.Text;var View=React.View;
+
+
+
+React.AppRegistry;var StyleSheet=React.StyleSheet;var Text=React.Text;var View=React.View;var AlertIOS=React.AlertIOS;var PushNotificationIOS=React.PushNotificationIOS;var TouchableHighlight=React.TouchableHighlight;
 
 var Buddhapp=React.createClass({displayName:'Buddhapp',
 render:function(){
 return (
-React.createElement(View,{style:styles.container},
-React.createElement(Text,{style:styles.welcome},'Welcome to React Native!'),
-
-
-React.createElement(Text,{style:styles.instructions},'To get started, edit index.ios.js'),
-
-
-React.createElement(Text,{style:styles.instructions},'Press Cmd+R to reload,',
-'\n','Cmd+D or shake for dev menu')))}});
+React.createElement(TouchableHighlight,{
+underlayColor:'white',
+style:styles.button,
+onPress:this.props.onPress},
+React.createElement(Text,{style:styles.buttonLabel},
+this.props.label)))}});var 
 
 
 
+
+
+
+NotificationExample=(function(_React$Component){_inherits(NotificationExample,_React$Component);function NotificationExample(){_classCallCheck(this,NotificationExample);_get(Object.getPrototypeOf(NotificationExample.prototype),'constructor',this).apply(this,arguments)}_createClass(NotificationExample,[{key:'componentWillMount',value:
+function componentWillMount(){
+PushNotificationIOS.addEventListener('notification',this._onNotification)}},{key:'componentWillUnmount',value:
+
+
+function componentWillUnmount(){
+PushNotificationIOS.removeEventListener('notification',this._onNotification)}},{key:'render',value:
+
+
+function render(){
+return (
+React.createElement(View,null,
+React.createElement(Button,{
+onPress:this._sendNotification,
+label:'Send fake notification'})))}},{key:'_sendNotification',value:
+
+
+
+
+
+function _sendNotification(){
+require('RCTDeviceEventEmitter').emit('remoteNotificationReceived',{
+aps:{
+alert:'Sample notification',
+badge:'+1',
+sound:'default',
+category:'REACT_NATIVE'}})}},{key:'_onNotification',value:
+
+
+
+
+function _onNotification(notification){
+AlertIOS.alert(
+'Notification Received',
+'Alert message: ' + notification.getMessage(),
+[{
+text:'Dismiss',
+onPress:null}])}}]);return NotificationExample})(React.Component);var 
+
+
+
+
+
+NotificationPermissionExample=(function(_React$Component2){_inherits(NotificationPermissionExample,_React$Component2);
+function NotificationPermissionExample(props){_classCallCheck(this,NotificationPermissionExample);
+_get(Object.getPrototypeOf(NotificationPermissionExample.prototype),'constructor',this).call(this,props);
+this.state = {permissions:null}}_createClass(NotificationPermissionExample,[{key:'render',value:
+
+
+function render(){
+return (
+React.createElement(View,null,
+React.createElement(Button,{
+onPress:this._showPermissions.bind(this),
+label:'Show enabled permissions'}),
+
+React.createElement(Text,null,
+JSON.stringify(this.state.permissions))))}},{key:'_showPermissions',value:
+
+
+
+
+
+function _showPermissions(){var _this=this;
+PushNotificationIOS.checkPermissions(function(permissions){
+_this.setState({permissions:permissions})})}}]);return NotificationPermissionExample})(React.Component);
 
 
 
 
 var styles=StyleSheet.create({
-container:{
-flex:1,
-justifyContent:'center',
+button:{
+padding:10,
 alignItems:'center',
-backgroundColor:'#F5FCFF'},
+justifyContent:'center'},
 
-welcome:{
-fontSize:20,
-textAlign:'center',
-margin:10},
+buttonLabel:{
+color:'blue'}});
 
-instructions:{
-textAlign:'center',
-color:'#333333',
-marginBottom:5}});
 
+
+exports.title = 'PushNotificationIOS';
+exports.description = 'Apple PushNotification and badge value';
+exports.examples = [
+{
+title:'Badge Number',
+render:function(){
+PushNotificationIOS.requestPermissions();
+
+return (
+React.createElement(View,null,
+React.createElement(Button,{
+onPress:function(){return PushNotificationIOS.setApplicationIconBadgeNumber(42)},
+label:'Set app\'s icon badge to 42'}),
+
+React.createElement(Button,{
+onPress:function(){return PushNotificationIOS.setApplicationIconBadgeNumber(0)},
+label:'Clear app\'s icon badge'})))}},
+
+
+
+
+
+{
+title:'Push Notifications',
+render:function(){
+return React.createElement(NotificationExample,null)}},
+
+
+{
+title:'Notifications Permissions',
+render:function(){
+return React.createElement(NotificationPermissionExample,null)}}];
 
 
 AppRegistry.registerComponent('Buddhapp',function(){return Buddhapp});
