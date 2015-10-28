@@ -16,6 +16,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                  UIUserNotificationTypeBadge |
+                                                  UIUserNotificationTypeSound);
+  UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                             categories:nil];
+  [application registerUserNotificationSettings:settings];
+  [application registerForRemoteNotifications];
+
   NSURL *jsCodeLocation;
 
   /**
@@ -61,12 +69,19 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
- [RCTPushNotificationManager application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+  // Store the deviceToken in the current installation and save it to Parse.
+  PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+  [currentInstallation setDeviceTokenFromData:deviceToken];
+  currentInstallation.channels = @[ @"global" ];
+  [currentInstallation saveInBackground];
+
+  [RCTPushNotificationManager application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 // Required for the notification event.
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)notification
 {
- [RCTPushNotificationManager application:application didReceiveRemoteNotification:notification];
+  [PFPush handlePush:userInfo];
+  [RCTPushNotificationManager application:application didReceiveRemoteNotification:notification];
 }
 
 @end
