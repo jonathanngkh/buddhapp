@@ -6,6 +6,7 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  */
+#import "RCTPushNotificationManager.h"
 
 #import "AppDelegate.h"
 
@@ -56,6 +57,16 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+ [RCTPushNotificationManager application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
+// Required for the notification event.
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)notification
+{
+ [RCTPushNotificationManager application:application didReceiveRemoteNotification:notification];
 }
 
 @end
