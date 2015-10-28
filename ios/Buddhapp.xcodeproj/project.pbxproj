@@ -25,6 +25,18 @@
 		66C19A5B1BE091710014CAAF /* RCTPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C19A5A1BE091710014CAAF /* RCTPushNotificationManager.m */; };
 		66C19A5E1BE095350014CAAF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A5C1BE095340014CAAF /* Bolts.framework */; };
 		66C19A5F1BE095350014CAAF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A5D1BE095350014CAAF /* Parse.framework */; };
+		66C19A611BE095E20014CAAF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A601BE095E20014CAAF /* AudioToolbox.framework */; };
+		66C19A631BE095E70014CAAF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A621BE095E70014CAAF /* CFNetwork.framework */; };
+		66C19A651BE095EB0014CAAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A641BE095EB0014CAAF /* CoreGraphics.framework */; };
+		66C19A671BE095F00014CAAF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A661BE095F00014CAAF /* CoreLocation.framework */; };
+		66C19A691BE095F50014CAAF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A681BE095F50014CAAF /* QuartzCore.framework */; };
+		66C19A6B1BE095FB0014CAAF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A6A1BE095FB0014CAAF /* Security.framework */; };
+		66C19A6D1BE096010014CAAF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A6C1BE096010014CAAF /* StoreKit.framework */; };
+		66C19A6F1BE096080014CAAF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A6E1BE096080014CAAF /* SystemConfiguration.framework */; };
+		66C19A711BE0960E0014CAAF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A701BE0960E0014CAAF /* libz.tbd */; };
+		66C19A731BE096160014CAAF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A721BE096160014CAAF /* libsqlite3.tbd */; };
+		66C19A751BE0961F0014CAAF /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A741BE0961F0014CAAF /* Accounts.framework */; };
+		66C19A771BE096240014CAAF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C19A761BE096240014CAAF /* Social.framework */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +144,18 @@
 		66C19A5A1BE091710014CAAF /* RCTPushNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTPushNotificationManager.m; sourceTree = "<group>"; };
 		66C19A5C1BE095340014CAAF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		66C19A5D1BE095350014CAAF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		66C19A601BE095E20014CAAF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		66C19A621BE095E70014CAAF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		66C19A641BE095EB0014CAAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		66C19A661BE095F00014CAAF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		66C19A681BE095F50014CAAF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		66C19A6A1BE095FB0014CAAF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		66C19A6C1BE096010014CAAF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		66C19A6E1BE096080014CAAF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		66C19A701BE0960E0014CAAF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		66C19A721BE096160014CAAF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		66C19A741BE0961F0014CAAF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		66C19A761BE096240014CAAF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +172,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66C19A771BE096240014CAAF /* Social.framework in Frameworks */,
+				66C19A751BE0961F0014CAAF /* Accounts.framework in Frameworks */,
+				66C19A731BE096160014CAAF /* libsqlite3.tbd in Frameworks */,
+				66C19A711BE0960E0014CAAF /* libz.tbd in Frameworks */,
+				66C19A6F1BE096080014CAAF /* SystemConfiguration.framework in Frameworks */,
+				66C19A6D1BE096010014CAAF /* StoreKit.framework in Frameworks */,
+				66C19A6B1BE095FB0014CAAF /* Security.framework in Frameworks */,
+				66C19A691BE095F50014CAAF /* QuartzCore.framework in Frameworks */,
+				66C19A671BE095F00014CAAF /* CoreLocation.framework in Frameworks */,
+				66C19A651BE095EB0014CAAF /* CoreGraphics.framework in Frameworks */,
+				66C19A631BE095E70014CAAF /* CFNetwork.framework in Frameworks */,
+				66C19A611BE095E20014CAAF /* AudioToolbox.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -251,6 +287,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				66C19A5C1BE095340014CAAF /* Bolts.framework */,
+				66C19A5D1BE095350014CAAF /* Parse.framework */,
 			);
 			name = Buddhapp;
 			sourceTree = "<group>";
@@ -274,8 +312,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				66C19A5C1BE095340014CAAF /* Bolts.framework */,
-				66C19A5D1BE095350014CAAF /* Parse.framework */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -301,6 +337,18 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				66C19A761BE096240014CAAF /* Social.framework */,
+				66C19A741BE0961F0014CAAF /* Accounts.framework */,
+				66C19A721BE096160014CAAF /* libsqlite3.tbd */,
+				66C19A701BE0960E0014CAAF /* libz.tbd */,
+				66C19A6E1BE096080014CAAF /* SystemConfiguration.framework */,
+				66C19A6C1BE096010014CAAF /* StoreKit.framework */,
+				66C19A6A1BE095FB0014CAAF /* Security.framework */,
+				66C19A681BE095F50014CAAF /* QuartzCore.framework */,
+				66C19A661BE095F00014CAAF /* CoreLocation.framework */,
+				66C19A641BE095EB0014CAAF /* CoreGraphics.framework */,
+				66C19A621BE095E70014CAAF /* CFNetwork.framework */,
+				66C19A601BE095E20014CAAF /* AudioToolbox.framework */,
 				13B07FAE1A68108700A75B9A /* Buddhapp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* BuddhappTests */,

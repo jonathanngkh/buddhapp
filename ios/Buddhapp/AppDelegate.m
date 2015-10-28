@@ -8,6 +8,8 @@
  */
 #import "RCTPushNotificationManager.h"
 
+#import "Parse/Parse.h"
+
 #import "AppDelegate.h"
 
 #import "RCTRootView.h"
@@ -16,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [Parse setApplicationId:@"av00FRwpLKImqgbfxrfzGeKqoNWosmu9WCUp0bM6"
+                clientKey:@"xquAap4XneCR00eDuEt875MMCMKPMmGvg1KWY1Ta"];
+
   UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                   UIUserNotificationTypeBadge |
                                                   UIUserNotificationTypeSound);
@@ -78,10 +83,10 @@
   [RCTPushNotificationManager application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 // Required for the notification event.
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)notification
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
   [PFPush handlePush:userInfo];
-  [RCTPushNotificationManager application:application didReceiveRemoteNotification:notification];
+  // [RCTPushNotificationManager application:application didReceiveRemoteNotification:notification];
 }
 
 @end
