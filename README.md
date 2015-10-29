@@ -1,4 +1,3 @@
-# Buddhapp
 Commit by commit guide to getting parse push notifications working on iOS with react-native
 
 Simpy follow the commit messages and code changes!
