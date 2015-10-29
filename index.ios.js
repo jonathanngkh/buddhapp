@@ -62,7 +62,7 @@ var Buddhapp = React.createClass({
 
         <TabBarIOS.Item
           title="Meditate"
-          icon="&#xe023"
+          icon={require('image!fire')}
           selected={this.state.selectedTab === 'meditateTab'}
           onPress={() => {
             this.setState({

@@ -1375,7 +1375,7 @@ throw new TypeError(
 
 var index=findIndex.call(this,predicate,context);
 return index === -1?undefined:this[index]}})}})();
-__d('Buddhapp/index.ios.js',["react-native/Libraries/react-native/react-native.js","RCTDeviceEventEmitter","Buddhapp/flux.png"],function(global, require, module, exports) {  'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}})();var _get=function get(object,property,receiver){if(object === null)object = Function.prototype;var desc=Object.getOwnPropertyDescriptor(object,property);if(desc === undefined){var parent=Object.getPrototypeOf(object);if(parent === null){return undefined}else {return get(parent,property,receiver)}}else if('value' in desc){return desc.value}else {var getter=desc.get;if(getter === undefined){return undefined}return getter.call(receiver)}};function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _inherits(subClass,superClass){if(typeof superClass !== 'function' && superClass !== null){throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass)}subClass.prototype = Object.create(superClass && superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__ = superClass}
+__d('Buddhapp/index.ios.js',["image!fire","react-native/Libraries/react-native/react-native.js","RCTDeviceEventEmitter","Buddhapp/flux.png"],function(global, require, module, exports) {  'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}})();var _get=function get(object,property,receiver){if(object === null)object = Function.prototype;var desc=Object.getOwnPropertyDescriptor(object,property);if(desc === undefined){var parent=Object.getPrototypeOf(object);if(parent === null){return undefined}else {return get(parent,property,receiver)}}else if('value' in desc){return desc.value}else {var getter=desc.get;if(getter === undefined){return undefined}return getter.call(receiver)}};function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _inherits(subClass,superClass){if(typeof superClass !== 'function' && superClass !== null){throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass)}subClass.prototype = Object.create(superClass && superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__ = superClass}
 
 
 
@@ -1439,7 +1439,7 @@ barTintColor:'#FF0066'},
 
 React.createElement(TabBarIOS.Item,{
 title:'Meditate',
-icon:'&#xe023',
+icon:require('image!fire'),
 selected:this.state.selectedTab === 'meditateTab',
 onPress:function(){
 _this.setState({
@@ -54137,7 +54137,9 @@ Object.keys(componentOrElement))}
 
 module.exports = findDOMNode;
 });
-__d('Buddhapp/flux.png',[],function(global, require, module, exports) {  module.exports = require("AssetRegistry").registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/JonathanNg/Code/Buddhapp","httpServerLocation":"/assets","width":256,"height":256,"scales":[1],"files":["/Users/JonathanNg/Code/Buddhapp/flux.png"],"hash":"c0bc546dbf40571451030e4d690f68e4","name":"flux","type":"png"});
+__d('image!fire',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/JonathanNg/Code/Buddhapp/ios/Buddhapp/Images.xcassets/fire.imageset/fire@3x.png","uri":"fire","width":25,"height":25,"deprecated":true};
+});
+__d('Buddhapp/flux.png',[],function(global, require, module, exports) {  module.exports = require("AssetRegistry").registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/JonathanNg/Code/Buddhapp","httpServerLocation":"/assets","width":256,"height":256,"scales":[1],"files":["/Users/JonathanNg/Code/Buddhapp/flux.png"],"hash":"53024923bee47a2dc6213f5d6137ed0e","name":"flux","type":"png"});
 });
 ;require("Buddhapp/index.ios.js");
 //@ sourceMappingURL=/index.ios.map?platform=ios&dev=false
