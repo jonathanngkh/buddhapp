@@ -13,6 +13,7 @@ var {
   AlertIOS,
   PushNotificationIOS,
   TouchableHighlight,
+  TabBarIOS,
 } = React;
 
 var Buddhapp = React.createClass({
@@ -27,8 +28,83 @@ var Buddhapp = React.createClass({
         </Text>
       </TouchableHighlight>
     );
+  },
+
+  statistics: {
+    title: '<TabBarIOS>',
+    description: 'Tab-based navigation.',
+  },
+
+  displayName: 'Buddhapp',
+
+  getInitialState: function() {
+    return {
+      selectedTab: 'Feed',
+      notifCount: 0,
+      presses: 0,
+    };
+  },
+
+  _renderContent: function(color: string, pageText: string, num?: number) {
+    return (
+      <View style={[styles.tabContent, {backgroundColor: color}]}>
+        <Text style={styles.tabText}>{pageText}</Text>
+        <Text style={styles.tabText}>{num} re-renders of the {pageText}</Text>
+      </View>
+    );
+  },
+
+  render: function() {
+    return (
+      <TabBarIOS
+        tintColor="white"
+        barTintColor="#FF60A6">
+
+        <TabBarIOS.Item
+          title="Meditate"
+          icon={require('image!fire')}
+          selected={this.state.selectedTab === 'meditateTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'meditateTab',
+            });
+          }}>
+          {this._renderContent('white', 'Meditate')}
+        </TabBarIOS.Item>
+
+        <TabBarIOS.Item
+          title="Kalyanamitra"
+          icon={require('image!sun')}
+          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
+          selected={this.state.selectedTab === 'kalyanamitraTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'kalyanamitraTab',
+              notifCount: this.state.notifCount + 1,
+            });
+          }}>
+          {this._renderContent('white', 'Kalyanamitra Tab', this.state.notifCount)}
+        </TabBarIOS.Item>
+
+        <TabBarIOS.Item
+          icon={require('image!zen')}
+          title="Anatta"
+          selected={this.state.selectedTab === 'anattaTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'anattaTab',
+              presses: this.state.presses + 1
+            });
+          }}>
+          {this._renderContent('white', 'Anatta Tab', this.state.presses)}
+        </TabBarIOS.Item>
+
+      </TabBarIOS>
+    );
   }
 });
+
+
 
 class NotificationExample extends React.Component {
   componentWillMount() {
@@ -108,6 +184,14 @@ var styles = StyleSheet.create({
   },
   buttonLabel: {
     color: 'blue',
+  },
+  tabContent: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  tabText: {
+    color: 'white',
+    margin: 50,
   },
 });
 
