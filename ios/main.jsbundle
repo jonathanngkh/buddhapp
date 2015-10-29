@@ -1375,7 +1375,7 @@ throw new TypeError(
 
 var index=findIndex.call(this,predicate,context);
 return index === -1?undefined:this[index]}})}})();
-__d('Buddhapp/index.ios.js',["react-native/Libraries/react-native/react-native.js","RCTDeviceEventEmitter"],function(global, require, module, exports) {  'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}})();var _get=function get(object,property,receiver){if(object === null)object = Function.prototype;var desc=Object.getOwnPropertyDescriptor(object,property);if(desc === undefined){var parent=Object.getPrototypeOf(object);if(parent === null){return undefined}else {return get(parent,property,receiver)}}else if('value' in desc){return desc.value}else {var getter=desc.get;if(getter === undefined){return undefined}return getter.call(receiver)}};function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _inherits(subClass,superClass){if(typeof superClass !== 'function' && superClass !== null){throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass)}subClass.prototype = Object.create(superClass && superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__ = superClass}
+__d('Buddhapp/index.ios.js',["image!fire","image!sun","image!zen","react-native/Libraries/react-native/react-native.js","RCTDeviceEventEmitter"],function(global, require, module, exports) {  'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}})();var _get=function get(object,property,receiver){if(object === null)object = Function.prototype;var desc=Object.getOwnPropertyDescriptor(object,property);if(desc === undefined){var parent=Object.getPrototypeOf(object);if(parent === null){return undefined}else {return get(parent,property,receiver)}}else if('value' in desc){return desc.value}else {var getter=desc.get;if(getter === undefined){return undefined}return getter.call(receiver)}};function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _inherits(subClass,superClass){if(typeof superClass !== 'function' && superClass !== null){throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass)}subClass.prototype = Object.create(superClass && superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__ = superClass}
 
 
 
@@ -1390,9 +1390,10 @@ AppRegistry=
 
 
 
-React.AppRegistry;var StyleSheet=React.StyleSheet;var Text=React.Text;var View=React.View;var AlertIOS=React.AlertIOS;var PushNotificationIOS=React.PushNotificationIOS;var TouchableHighlight=React.TouchableHighlight;
 
-var Buddhapp=React.createClass({displayName:'Buddhapp',
+React.AppRegistry;var StyleSheet=React.StyleSheet;var Text=React.Text;var View=React.View;var AlertIOS=React.AlertIOS;var PushNotificationIOS=React.PushNotificationIOS;var TouchableHighlight=React.TouchableHighlight;var TabBarIOS=React.TabBarIOS;
+
+var Buddhapp=React.createClass({
 render:function(){
 return (
 React.createElement(TouchableHighlight,{
@@ -1400,7 +1401,82 @@ underlayColor:'white',
 style:styles.button,
 onPress:this.props.onPress},
 React.createElement(Text,{style:styles.buttonLabel},
-this.props.label)))}});var 
+this.props.label)))},
+
+
+
+
+
+statistics:{
+title:'<TabBarIOS>',
+description:'Tab-based navigation.'},
+
+
+displayName:'Buddhapp',
+
+getInitialState:function(){
+return {
+selectedTab:'Feed',
+notifCount:0,
+presses:0}},
+
+
+
+_renderContent:function(color,pageText,num){
+return (
+React.createElement(View,{style:[styles.tabContent,{backgroundColor:color}]},
+React.createElement(Text,{style:styles.tabText},pageText),
+React.createElement(Text,{style:styles.tabText},num,' re-renders of the ',pageText)))},
+
+
+
+
+render:function(){var _this=this;
+return (
+React.createElement(TabBarIOS,{
+tintColor:'white',
+barTintColor:'#FF60A6'},
+
+React.createElement(TabBarIOS.Item,{
+title:'Meditate',
+icon:require('image!fire'),
+selected:this.state.selectedTab === 'meditateTab',
+onPress:function(){
+_this.setState({
+selectedTab:'meditateTab'})}},
+
+
+this._renderContent('white','Meditate')),
+
+
+React.createElement(TabBarIOS.Item,{
+title:'Kalyanamitra',
+icon:require('image!sun'),
+badge:this.state.notifCount > 0?this.state.notifCount:undefined,
+selected:this.state.selectedTab === 'kalyanamitraTab',
+onPress:function(){
+_this.setState({
+selectedTab:'kalyanamitraTab',
+notifCount:_this.state.notifCount + 1})}},
+
+
+this._renderContent('white','Kalyanamitra Tab',this.state.notifCount)),
+
+
+React.createElement(TabBarIOS.Item,{
+icon:require('image!zen'),
+title:'Anatta',
+selected:this.state.selectedTab === 'anattaTab',
+onPress:function(){
+_this.setState({
+selectedTab:'anattaTab',
+presses:_this.state.presses + 1})}},
+
+
+this._renderContent('white','Anatta Tab',this.state.presses))))}});var 
+
+
+
 
 
 
@@ -1470,9 +1546,9 @@ JSON.stringify(this.state.permissions))))}},{key:'_showPermissions',value:
 
 
 
-function _showPermissions(){var _this=this;
+function _showPermissions(){var _this2=this;
 PushNotificationIOS.checkPermissions(function(permissions){
-_this.setState({permissions:permissions})})}}]);return NotificationPermissionExample})(React.Component);
+_this2.setState({permissions:permissions})})}}]);return NotificationPermissionExample})(React.Component);
 
 
 
@@ -1484,7 +1560,15 @@ alignItems:'center',
 justifyContent:'center'},
 
 buttonLabel:{
-color:'blue'}});
+color:'blue'},
+
+tabContent:{
+flex:1,
+alignItems:'center'},
+
+tabText:{
+color:'white',
+margin:50}});
 
 
 
@@ -54053,6 +54137,12 @@ Object.keys(componentOrElement))}
 
 
 module.exports = findDOMNode;
+});
+__d('image!fire',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/JonathanNg/Code/Buddhapp/ios/Buddhapp/Images.xcassets/fire.imageset/fire@3x.png","uri":"fire","width":25,"height":25,"deprecated":true};
+});
+__d('image!sun',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/JonathanNg/Code/Buddhapp/ios/Buddhapp/Images.xcassets/sun.imageset/sun@3x.png","uri":"sun","width":25,"height":25,"deprecated":true};
+});
+__d('image!zen',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/JonathanNg/Code/Buddhapp/ios/Buddhapp/Images.xcassets/zen.imageset/zen@3x.png","uri":"zen","width":25,"height":25,"deprecated":true};
 });
 ;require("Buddhapp/index.ios.js");
 //@ sourceMappingURL=/index.ios.map?platform=ios&dev=false
