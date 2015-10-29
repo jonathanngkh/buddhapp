@@ -32,7 +32,7 @@ var Buddhapp = React.createClass({
 
   statistics: {
     title: '<TabBarIOS>',
-    description: 'Tab-based navgitation.',
+    description: 'Tab-based navigation.',
   },
 
   displayName: 'Buddhapp',
@@ -58,7 +58,7 @@ var Buddhapp = React.createClass({
     return (
       <TabBarIOS
         tintColor="white"
-        barTintColor="#FF0066">
+        barTintColor="#FF60A6">
 
         <TabBarIOS.Item
           title="Meditate"
@@ -73,29 +73,30 @@ var Buddhapp = React.createClass({
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
-          systemIcon="history"
+          title="Kalyanamitra"
+          icon={require('image!sun')}
           badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
-          selected={this.state.selectedTab === 'redTab'}
+          selected={this.state.selectedTab === 'kalyanamitraTab'}
           onPress={() => {
             this.setState({
-              selectedTab: 'redTab',
+              selectedTab: 'kalyanamitraTab',
               notifCount: this.state.notifCount + 1,
             });
           }}>
-          {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
+          {this._renderContent('white', 'Kalyanamitra Tab', this.state.notifCount)}
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
-          icon={require('./flux.png')}
-          title="More"
-          selected={this.state.selectedTab === 'greenTab'}
+          icon={require('image!zen')}
+          title="Anatta"
+          selected={this.state.selectedTab === 'anattaTab'}
           onPress={() => {
             this.setState({
-              selectedTab: 'greenTab',
+              selectedTab: 'anattaTab',
               presses: this.state.presses + 1
             });
           }}>
-          {this._renderContent('#21551C', 'Green Tab', this.state.presses)}
+          {this._renderContent('white', 'Anatta Tab', this.state.presses)}
         </TabBarIOS.Item>
 
       </TabBarIOS>
