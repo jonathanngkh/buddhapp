@@ -14,7 +14,12 @@ var {
   PushNotificationIOS,
   TouchableHighlight,
   TabBarIOS,
+  StatusBarIOS,
 } = React;
+
+var MeditateTab = require('./tabs/Meditate');
+var KalyanamitraTab = require('./tabs/Kalyanamitra');
+var AnattaTab = require('./tabs/Anatta');
 
 var Buddhapp = React.createClass({
   render: function() {
@@ -30,12 +35,9 @@ var Buddhapp = React.createClass({
     );
   },
 
-  statistics: {
-    title: '<TabBarIOS>',
-    description: 'Tab-based navigation.',
+  componentWillMount: function() {
+    StatusBarIOS.setStyle(1);
   },
-
-  displayName: 'Buddhapp',
 
   getInitialState: function() {
     return {
@@ -54,36 +56,36 @@ var Buddhapp = React.createClass({
     );
   },
 
+  changeTab(tabName) {
+    this.setState({
+      selectedTab: tabName
+    });
+  },
+
   render: function() {
     return (
       <TabBarIOS
         tintColor="white"
-        barTintColor="#FF60A6">
+        barTintColor="#FF0066">
 
         <TabBarIOS.Item
           title="Meditate"
           icon={require('image!fire')}
           selected={this.state.selectedTab === 'meditateTab'}
           onPress={() => {
-            this.setState({
-              selectedTab: 'meditateTab',
-            });
+            this.changeTab('meditateTab');
           }}>
-          {this._renderContent('white', 'Meditate')}
+          <MeditateTab />
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
           title="Kalyanamitra"
           icon={require('image!sun')}
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
           selected={this.state.selectedTab === 'kalyanamitraTab'}
           onPress={() => {
-            this.setState({
-              selectedTab: 'kalyanamitraTab',
-              notifCount: this.state.notifCount + 1,
-            });
+            this.changeTab('kalyanamitraTab');
           }}>
-          {this._renderContent('white', 'Kalyanamitra Tab', this.state.notifCount)}
+          <KalyanamitraTab />
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
@@ -91,12 +93,9 @@ var Buddhapp = React.createClass({
           title="Anatta"
           selected={this.state.selectedTab === 'anattaTab'}
           onPress={() => {
-            this.setState({
-              selectedTab: 'anattaTab',
-              presses: this.state.presses + 1
-            });
+            this.changeTab('anattaTab');
           }}>
-          {this._renderContent('white', 'Anatta Tab', this.state.presses)}
+          <AnattaTab />
         </TabBarIOS.Item>
 
       </TabBarIOS>
