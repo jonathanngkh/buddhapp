@@ -30,10 +30,10 @@ var styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   header: {
-    height: 50,
+    height: 60,
     backgroundColor: '#FF0066',
     alignItems: 'center',
-    paddingTop: 20,
+    paddingTop: 25,
   },
   headerText: {
     color: '#FFF',
