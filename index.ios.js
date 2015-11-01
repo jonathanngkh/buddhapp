@@ -16,6 +16,8 @@ var {
   TabBarIOS,
 } = React;
 
+var MeditateTab = require('./tabs/Meditate');
+
 var Buddhapp = React.createClass({
   render: function() {
     return (
@@ -66,7 +68,7 @@ var Buddhapp = React.createClass({
           onPress={() => {
             this.changeTab('meditateTab');
           }}>
-          {this._renderContent('white', 'Meditate')}
+          <MeditateTab />
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
