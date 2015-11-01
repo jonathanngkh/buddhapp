@@ -18,6 +18,8 @@ var {
 } = React;
 
 var MeditateTab = require('./tabs/Meditate');
+var KalyanamitraTab = require('./tabs/Kalyanamitra');
+var AnattaTab = require('./tabs/Anatta');
 
 var Buddhapp = React.createClass({
   render: function() {
@@ -31,6 +33,10 @@ var Buddhapp = React.createClass({
         </Text>
       </TouchableHighlight>
     );
+  },
+
+  componentWillMount: function() {
+    StatusBarIOS.setStyle(1);
   },
 
   getInitialState: function() {
@@ -51,7 +57,6 @@ var Buddhapp = React.createClass({
   },
 
   changeTab(tabName) {
-    StatusBarIOS.setStyle(tabName === 'meditateTab' ? 1 : 0);
     this.setState({
       selectedTab: tabName
     });
@@ -80,7 +85,7 @@ var Buddhapp = React.createClass({
           onPress={() => {
             this.changeTab('kalyanamitraTab');
           }}>
-          {this._renderContent('white', 'Kalyanamitra Tab')}
+          <KalyanamitraTab />
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
@@ -90,7 +95,7 @@ var Buddhapp = React.createClass({
           onPress={() => {
             this.changeTab('anattaTab');
           }}>
-          {this._renderContent('white', 'Anatta Tab')}
+          <AnattaTab />
         </TabBarIOS.Item>
 
       </TabBarIOS>

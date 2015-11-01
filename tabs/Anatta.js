@@ -4,19 +4,19 @@ var React = require('react-native');
 var {
   StyleSheet,
   Text,
-  View,
+  View
   } = React;
 
-var meditateTab = React.createClass({
+var anattaTab = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>Meditate</Text>
+          <Text style={styles.headerText}>Anatta</Text>
         </View>
         <View style={styles.content}>
           <Text>
-            Meditate tab content goes here!
+            Anatta tab content goes here!
           </Text>
         </View>
       </View>
@@ -42,4 +42,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = meditateTab;
+module.exports = anattaTab;
