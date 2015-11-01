@@ -39,7 +39,7 @@ var Buddhapp = React.createClass({
 
   getInitialState: function() {
     return {
-      selectedTab: 'Feed',
+      selectedTab: 'kalyanamitraTab',
       notifCount: 0,
       presses: 0,
     };
