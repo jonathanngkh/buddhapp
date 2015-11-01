@@ -14,6 +14,7 @@ var {
   PushNotificationIOS,
   TouchableHighlight,
   TabBarIOS,
+  StatusBarIOS,
 } = React;
 
 var MeditateTab = require('./tabs/Meditate');
@@ -50,6 +51,7 @@ var Buddhapp = React.createClass({
   },
 
   changeTab(tabName) {
+    StatusBarIOS.setStyle(tabName === 'meditateTab' ? 1 : 0);
     this.setState({
       selectedTab: tabName
     });
