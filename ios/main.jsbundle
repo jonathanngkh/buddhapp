@@ -1393,7 +1393,7 @@ AppRegistry=
 
 React.AppRegistry;var StyleSheet=React.StyleSheet;var Text=React.Text;var View=React.View;var AlertIOS=React.AlertIOS;var PushNotificationIOS=React.PushNotificationIOS;var TouchableHighlight=React.TouchableHighlight;var TabBarIOS=React.TabBarIOS;
 
-var Buddhapp=React.createClass({
+var Buddhapp=React.createClass({displayName:'Buddhapp',
 render:function(){
 return (
 React.createElement(TouchableHighlight,{
@@ -1406,13 +1406,6 @@ this.props.label)))},
 
 
 
-
-statistics:{
-title:'<TabBarIOS>',
-description:'Tab-based navigation.'},
-
-
-displayName:'Buddhapp',
 
 getInitialState:function(){
 return {
@@ -1431,20 +1424,24 @@ React.createElement(Text,{style:styles.tabText},num,' re-renders of the ',pageTe
 
 
 
+changeTab:function(tabName){
+this.setState({
+selectedTab:tabName})},
+
+
+
 render:function(){var _this=this;
 return (
 React.createElement(TabBarIOS,{
 tintColor:'white',
-barTintColor:'#FF60A6'},
+barTintColor:'#FF0066'},
 
 React.createElement(TabBarIOS.Item,{
 title:'Meditate',
 icon:require('image!fire'),
 selected:this.state.selectedTab === 'meditateTab',
 onPress:function(){
-_this.setState({
-selectedTab:'meditateTab'})}},
-
+_this.changeTab('meditateTab')}},
 
 this._renderContent('white','Meditate')),
 
@@ -1452,15 +1449,13 @@ this._renderContent('white','Meditate')),
 React.createElement(TabBarIOS.Item,{
 title:'Kalyanamitra',
 icon:require('image!sun'),
-badge:this.state.notifCount > 0?this.state.notifCount:undefined,
 selected:this.state.selectedTab === 'kalyanamitraTab',
 onPress:function(){
 _this.setState({
-selectedTab:'kalyanamitraTab',
-notifCount:_this.state.notifCount + 1})}},
+selectedTab:'kalyanamitraTab'})}},
 
 
-this._renderContent('white','Kalyanamitra Tab',this.state.notifCount)),
+this._renderContent('white','Kalyanamitra Tab')),
 
 
 React.createElement(TabBarIOS.Item,{
@@ -1469,11 +1464,10 @@ title:'Anatta',
 selected:this.state.selectedTab === 'anattaTab',
 onPress:function(){
 _this.setState({
-selectedTab:'anattaTab',
-presses:_this.state.presses + 1})}},
+selectedTab:'anattaTab'})}},
 
 
-this._renderContent('white','Anatta Tab',this.state.presses))))}});var 
+this._renderContent('white','Anatta Tab'))))}});var 
 
 
 
@@ -5327,7 +5321,7 @@ NodeHandle.injection.injectImplementation(UniversalWorkerNodeHandle)}
 module.exports = {
 inject:inject};
 });
-__d('InitializeJavaScriptAppEngine',["RCTDebugComponentOwnership","RCTDeviceEventEmitter","PerformanceLogger","ExceptionsManager","ErrorUtils","ExceptionsManager","Platform","checkFlowAtRuntime","JSTimers","NativeModules","Promise","XMLHttpRequest","FormData","fetch","Geolocation","WebSocket","BridgeProfiling","regenerator/runtime.js"],function(global, require, module, exports) {  var _extends=Object.assign || function(target){for(var i=1;i < arguments.length;i++) {var source=arguments[i];for(var key in source) {if(Object.prototype.hasOwnProperty.call(source,key)){target[key] = source[key]}}}return target};
+__d('InitializeJavaScriptAppEngine',["RCTDebugComponentOwnership","RCTDeviceEventEmitter","PerformanceLogger","regenerator/runtime.js","ExceptionsManager","ErrorUtils","ExceptionsManager","Platform","checkFlowAtRuntime","JSTimers","NativeModules","Promise","XMLHttpRequest","FormData","fetch","Geolocation","WebSocket","BridgeProfiling"],function(global, require, module, exports) {  var _extends=Object.assign || function(target){for(var i=1;i < arguments.length;i++) {var source=arguments[i];for(var key in source) {if(Object.prototype.hasOwnProperty.call(source,key)){target[key] = source[key]}}}return target};
 
 
 
@@ -25993,7 +25987,7 @@ return dimensions[dim]}}]);return Dimensions})();
 
 module.exports = Dimensions;
 });
-__d('ListView',["ListViewDataSource","React","NativeModules","NativeModules","ScrollView","ScrollResponder","StaticRenderer","isEmpty","logError","merge","react-timer-mixin/TimerMixin.js"],function(global, require, module, exports) {  'use strict';var _extends=Object.assign || function(target){for(var i=1;i < arguments.length;i++) {var source=arguments[i];for(var key in source) {if(Object.prototype.hasOwnProperty.call(source,key)){target[key] = source[key]}}}return target};function _objectWithoutProperties(obj,keys){var target={};for(var i in obj) {if(keys.indexOf(i) >= 0)continue;if(!Object.prototype.hasOwnProperty.call(obj,i))continue;target[i] = obj[i]}return target}
+__d('ListView',["ListViewDataSource","React","NativeModules","NativeModules","ScrollView","ScrollResponder","StaticRenderer","react-timer-mixin/TimerMixin.js","isEmpty","logError","merge"],function(global, require, module, exports) {  'use strict';var _extends=Object.assign || function(target){for(var i=1;i < arguments.length;i++) {var source=arguments[i];for(var key in source) {if(Object.prototype.hasOwnProperty.call(source,key)){target[key] = source[key]}}}return target};function _objectWithoutProperties(obj,keys){var target={};for(var i in obj) {if(keys.indexOf(i) >= 0)continue;if(!Object.prototype.hasOwnProperty.call(obj,i))continue;target[i] = obj[i]}return target}
 
 
 
@@ -30114,7 +30108,7 @@ this.emit(arg.eventType,arg.data,arg.didEmitCallback)}}}]);return NavigationEven
 
 module.exports = NavigationEventEmitter;
 });
-__d('NavigatorBreadcrumbNavigationBar',["NavigatorBreadcrumbNavigationBarStyles","NavigatorNavigationBarStylesAndroid","NavigatorNavigationBarStylesIOS","Platform","React","StyleSheet","View","invariant","immutable/dist/immutable.js"],function(global, require, module, exports) {  'use strict';
+__d('NavigatorBreadcrumbNavigationBar',["NavigatorBreadcrumbNavigationBarStyles","NavigatorNavigationBarStylesAndroid","NavigatorNavigationBarStylesIOS","Platform","React","StyleSheet","View","immutable/dist/immutable.js","invariant"],function(global, require, module, exports) {  'use strict';
 
 
 

@@ -30,13 +30,6 @@ var Buddhapp = React.createClass({
     );
   },
 
-  statistics: {
-    title: '<TabBarIOS>',
-    description: 'Tab-based navigation.',
-  },
-
-  displayName: 'Buddhapp',
-
   getInitialState: function() {
     return {
       selectedTab: 'kalyanamitraTab',
@@ -54,20 +47,24 @@ var Buddhapp = React.createClass({
     );
   },
 
+  changeTab(tabName) {
+    this.setState({
+      selectedTab: tabName
+    });
+  },
+
   render: function() {
     return (
       <TabBarIOS
         tintColor="white"
-        barTintColor="#FF60A6">
+        barTintColor="#FF0066">
 
         <TabBarIOS.Item
           title="Meditate"
           icon={require('image!fire')}
           selected={this.state.selectedTab === 'meditateTab'}
           onPress={() => {
-            this.setState({
-              selectedTab: 'meditateTab',
-            });
+            this.changeTab('meditateTab');
           }}>
           {this._renderContent('white', 'Meditate')}
         </TabBarIOS.Item>
@@ -75,15 +72,13 @@ var Buddhapp = React.createClass({
         <TabBarIOS.Item
           title="Kalyanamitra"
           icon={require('image!sun')}
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
           selected={this.state.selectedTab === 'kalyanamitraTab'}
           onPress={() => {
             this.setState({
               selectedTab: 'kalyanamitraTab',
-              notifCount: this.state.notifCount + 1,
             });
           }}>
-          {this._renderContent('white', 'Kalyanamitra Tab', this.state.notifCount)}
+          {this._renderContent('white', 'Kalyanamitra Tab')}
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
@@ -93,10 +88,9 @@ var Buddhapp = React.createClass({
           onPress={() => {
             this.setState({
               selectedTab: 'anattaTab',
-              presses: this.state.presses + 1
             });
           }}>
-          {this._renderContent('white', 'Anatta Tab', this.state.presses)}
+          {this._renderContent('white', 'Anatta Tab')}
         </TabBarIOS.Item>
 
       </TabBarIOS>
