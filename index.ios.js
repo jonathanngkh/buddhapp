@@ -74,9 +74,7 @@ var Buddhapp = React.createClass({
           icon={require('image!sun')}
           selected={this.state.selectedTab === 'kalyanamitraTab'}
           onPress={() => {
-            this.setState({
-              selectedTab: 'kalyanamitraTab',
-            });
+            this.changeTab('kalyanamitraTab');
           }}>
           {this._renderContent('white', 'Kalyanamitra Tab')}
         </TabBarIOS.Item>
@@ -86,9 +84,7 @@ var Buddhapp = React.createClass({
           title="Anatta"
           selected={this.state.selectedTab === 'anattaTab'}
           onPress={() => {
-            this.setState({
-              selectedTab: 'anattaTab',
-            });
+            this.changeTab('anattaTab');
           }}>
           {this._renderContent('white', 'Anatta Tab')}
         </TabBarIOS.Item>

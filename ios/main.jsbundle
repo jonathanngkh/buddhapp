@@ -1451,9 +1451,7 @@ title:'Kalyanamitra',
 icon:require('image!sun'),
 selected:this.state.selectedTab === 'kalyanamitraTab',
 onPress:function(){
-_this.setState({
-selectedTab:'kalyanamitraTab'})}},
-
+_this.changeTab('kalyanamitraTab')}},
 
 this._renderContent('white','Kalyanamitra Tab')),
 
@@ -1463,9 +1461,7 @@ icon:require('image!zen'),
 title:'Anatta',
 selected:this.state.selectedTab === 'anattaTab',
 onPress:function(){
-_this.setState({
-selectedTab:'anattaTab'})}},
-
+_this.changeTab('anattaTab')}},
 
 this._renderContent('white','Anatta Tab'))))}});var 
 
